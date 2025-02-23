@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEST VIRGINIA RP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Rye&display=swap');
+
+        :root {
+            --color-brown: #8B4513;
+            --color-gold: #DAA520;
+            --color-beige: #F5DEB3;
+            --color-dark-red: #8B0000;
+            --color-discord: #5865F2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #2b1810;
+            background-attachment: fixed;
+            background-size: cover;
+            color: var(--color-beige);
+            font-family: 'Playfair Display', serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title {
+            font-family: 'Rye', cursive;
+            font-size: 4rem;
+            color: var(--color-gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+            text-align: center; 
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgb(43, 24, 16);
+            padding: 2.5rem;
+            z-index: 1000;
+            border-bottom: 2px solid var(--color-gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--color-beige);
+            text-decoration: none;
+            font-family: 'Rye', cursive;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--color-gold);
+        }
+
+        .nav-link i {
+            margin-right: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: transparent;
+            border: 3px solid #FFA500;
+            color: #FFA500;
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            margin-left: 1.5rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #FFA500;
+            color: black;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .btn-primary {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            background: rgba(43, 24, 16, 0.9);
+            margin: 2rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            height: calc(100vh - 80px); /* Altezza della viewport meno l'altezza della navbar */
+            margin-top: 80px; /* Esattamente l'altezza della navbar */
+            padding: 0; /* Rimuove il padding */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        #staff {
+            margin-top: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero {
+                height: calc(100vh - 60px); /* Altezza ridotta per mobile */
+                margin-top: 60px; /* Navbar più sottile su mobile */
+            }
+        }
+
+        /* Staff Styles */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .staff-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--color-gold);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .staff-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--color-gold);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .staff-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .staff-card:hover .staff-image img {
+            transform: scale(1.1);
+        }
+
+        .staff-name {
+            font-family: 'Rye', cursive;
+            color: var(--color-gold);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .staff-role {
+            color: var(--color-beige);
+            font-style: italic;
+        }
+
+        /* Discord Button Styles */
+        .discord-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--color-discord);
+            color: var(--color-beige);
+            text-decoration: none;
+            border: 2px solid var(--color-gold);
+            font-family: 'Rye', cursive;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .discord-button:hover {
+            background: var(--color-gold);
+            color: var(--color-discord);
+            transform: scale(1.05);
+        }
+
+        /* Donation Packages Styles */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .package-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--color-gold);
+            padding: 0;
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .package-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .package-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .package-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-title {
+            font-family: 'Rye', cursive;
+            color: var(--color-gold);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .package-price {
+            font-size: 2.5rem;
+            color: var(--color-beige);
+            margin: 1rem 0;
+        }
+
+        .package-description {
+            color: var(--color-beige);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .package-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .package-icons i {
+            color: var(--color-gold);
+            font-size: 1.5rem;
+        }
+
+        .ticket-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--color-discord);
+            color: var(--color-beige);
+            text-decoration: none;
+            border: 2px solid var(--color-gold);
+            font-family: 'Rye', cursive;
+            transition: all 0.3s;
+            margin-top: auto;
+        }
+
+        .ticket-button:hover {
+            background: var(--color-gold);
+            color: var(--color-discord);
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 1rem;
+            right: -2rem;
+            background: var(--color-gold);
+            color: var(--color-dark-red);
+            padding: 0.5rem 3rem;
+            transform: rotate(45deg);
+            font-family: 'Rye', cursive;
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        /* Remaining styles... */
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid var(--color-gold);
+            white-space: pre-line;
+            margin: 0 auto;
+            width: fit-content;
+            animation: blink-caret .75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--color-gold) }
+        }
+
+        .rules-section {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border: 2px solid var(--color-gold);
+            margin-top: 2rem;
+        }
+
+        .basic-rules {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .basic-rules li {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-left: 3px solid var(--color-gold);
+        }
+
+        .basic-rules li i {
+            color: var(--color-gold);
+            margin-right: 1rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 2rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--color-gold);
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(0, 0, 0, 0.9);
+            border-top: 2px solid var(--color-gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .footer-section {
+            padding: 1rem;
+        }
+
+        .footer-title {
+            color: var(--color-gold);
+            font-family: 'Rye', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--color-gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-list li {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-list i {
+            color: var(--color-gold);
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--color-beige);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--color-gold);
+        }
+
+        .whitelist-status-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .server-status {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--color-gold);
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .status-open {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            border-color: #4CAF50;
+        }
+
+        .status-closed {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: #f44336;
+            border-color: #f44336;
+        }
+
+        .next-status {
+            font-size: 0.9rem;
+            color: var(--color-beige);
+            text-align: center;
+            font-style: italic;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(218, 165, 32, 0.3);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-section {
+                padding: 0.5rem;
+            }
+        }
+
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--color-gold);
+            z-index: 1001;
+            width: 0;
+            transition: width 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .navbar {
+                padding: 0.5rem;
+            }
+
+            .nav-link {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .btn-primary {
+            background-color: transparent;
+            border: 2px solid #FFA500;
+            color: #FFA500;
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            background-color: #FFA500;
+            color: black;
+            transform: translateY(-2px);
+        }
+
+        .rules-button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        .rules-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--color-dark-red);
+            color: var(--color-beige);
+            text-decoration: none;
+            border: 2px solid var(--color-gold);
+            font-family: 'Rye', cursive;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .rules-button:hover {
+            background: var(--color-gold);
+            color: var(--color-dark-red);
+            transform: scale(1.05);
+        }
+
+        .rules-button i {
+            margin-right: 0.5rem;
+        }
+
+        /* Mobile Menu Styles */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: var(--color-gold);
+            border: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            z-index: 1002;
+            cursor: pointer;
+        }
+
+        .menu-toggle i {
+            color: var(--color-dark-red);
+            font-size: 1.5rem;
+        }
+
+        /* Tablet Styles (768px - 1024px) */
+        @media screen and (max-width: 1024px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .title {
+                font-size: 3rem;
+            }
+
+            .staff-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .packages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile Styles (< 768px) */
+        @media screen and (max-width: 767px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .navbar {
+                height: auto;
+                padding: 0;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .navbar.active {
+                transform: translateY(0);
+            }
+
+            .nav-links {
+                flex-direction: column;
+                padding: 1rem;
+                width: 100%;
+                background: rgba(43, 24, 16, 0.95);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-link {
+                padding: 1rem;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid var(--color-gold);
+            }
+
+            .btn-primary {
+                width: 90%;
+                margin: 1rem auto;
+                text-align: center;
+            }
+
+            .title {
+                font-size: 2rem;
+                padding: 0 1rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .staff-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Adjust section padding */
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            /* Make staff cards more compact */
+            .staff-card {
+                padding: 1rem;
+            }
+
+            .staff-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            /* Adjust package cards */
+            .package-card {
+                margin: 0 1rem;
+            }
+
+            .package-image {
+                height: 150px;
+            }
+
+            /* Improve button touch targets */
+            .nav-link,
+            .btn-primary,
+            .ticket-button,
+            .discord-button,
+            .rules-button {
+                padding: 0.8rem 1.5rem;
+                min-height: 44px; /* Minimum touch target size */
+            }
+
+            /* Adjust whitelist status container */
+            .whitelist-status-container {
+                margin: 0 1rem;
+            }
+
+            /* Improve form elements for touch */
+            input,
+            select,
+            textarea {
+                font-size: 16px; /* Prevent zoom on iOS */
+                min-height: 44px;
+            }
+
+            /* Add bottom padding for iOS safe area */
+            .footer {
+                padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+            }
+        }
+
+        /* Small Mobile Styles (< 375px) */
+        @media screen and (max-width: 374px) {
+            .title {
+                font-size: 1.75rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+            }
+
+            .staff-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .package-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Handle landscape orientation */
+        @media screen and (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                padding: 4rem 1rem;
+            }
+
+            .nav-links.active {
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+        }
+        /* Carosello immagini */
+        .carousel-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-menu-btn {
+            background: var(--color-dark-red);
+            color: var(--color-beige);
+            border: 2px solid var(--color-gold);
+            padding: 0.8rem 1.5rem;
+            font-family: 'Rye', cursive;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-menu-btn:hover {
+            background: var(--color-gold);
+            color: var(--color-dark-red);
+            transform: translateY(-2px);
+        }
+
+        .carousel-container {
+            display: none;
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+            overflow: hidden;
+        }
+
+        .carousel-container.active {
+            display: flex;
+            align-items: center;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: var(--color-gold);
+            padding: 1rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-nav:hover {
+            background: var(--color-gold);
+            color: var(--color-dark-red);
+        }
+
+        .carousel-nav.prev {
+            left: 0;
+        }
+
+        .carousel-nav.next {
+            right: 0;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .carousel-nav {
+                padding: 0.5rem;
+            }
+        }
+
+        .streamer-section {
+            margin-top: 4rem;
+            padding-top: 4rem;
+        }
+
+        .streamer-title {
+            font-family: 'Rye', cursive;
+            font-size: 2.5rem;
+            color: #9147ff;  /* Colore viola di Twitch */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .streamer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .streamer-card {
+            background: rgba(145, 71, 255, 0.1);  /* Sfondo viola semitrasparente */
+            border: 2px solid #9147ff;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .streamer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(145, 71, 255, 0.3);
+        }
+
+        .streamer-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 3px solid #9147ff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .streamer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .streamer-card:hover .streamer-image img {
+            transform: scale(1.1);
+        }
+
+        .streamer-name {
+            font-family: 'Rye', cursive;
+            color: #9147ff;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .streamer-info {
+            color: var(--color-beige);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .streamer-stats {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            color: var(--color-beige);
+        }
+
+        .streamer-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .streamer-stat i {
+            color: #9147ff;
+        }
+
+        .watch-now {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #9147ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .watch-now:hover {
+            background: #7a2bf5;
+            transform: translateY(-2px);
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #ff0000;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .live-badge i {
+            font-size: 0.7rem;
+        }
+
+        @media (max-width: 768px) {
+            .streamer-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .streamer-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-bar"></div>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#home" class="nav-link"><i class="fas fa-home"></i>Home</a>
+            <a href="#staff" class="nav-link"><i class="fas fa-users"></i>Staff</a>
+            <a href="#streamers" class="nav-link"><i class="fas fa-twich"></i>Streamers</a>
+            <a href="#lore" class="nav-link"><i class="fas fa-book"></i>Lore</a>
+            <a href="#rules" class="nav-link"><i class="fas fa-gavel"></i>Regolamento</a>
+            <a href="#gallery" class="nav-link"><i class="fas fa-images"></i>Galleria</a>
+            <a href="#donations" class="nav-link"><i class="fas fa-gift"></i>Donazioni</a>
+        </div>
+        <a href="https://discord.gg/XV9uQkPCy6" class="btn-primary">ENTRA ORA</a>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="video-container">
+            <div class="video-overlay"></div>
+            <video autoplay muted loop playsinline id="hero-video">
+                <source src="image/western.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Benvenuti Su <span class="orange-text">West Virginia</span></h1>
+            <a href="https://discord.gg/XV9uQkPCy6" class="btn-primary">Scopri di più</a>
+        </div>
+    </section>
+
+    <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <audio id="background-music" loop autoplay>
+        <source src="music/background.mp3" type="audio/mpeg">
+    </audio>
+    
+    <section id="staff" class="section">
+        <div class="container" data-aos="fade-left">
+            <h2 class="title">Il Nostro Staff</h2>
+            <div class="staff-grid">
+
+                <!-- dima_ -->             
+                <div class="staff-card" data-aos="flip-left">
+                    <div class="staff-image">
+                        <img src="image/stafflogo/dima.gif" alt="Dima_">
+                    </div>
+                    <h3 class="staff-name"><i class="fas fa-crown fa-bounce"></i> Dima_</h3>
+                    <p class="staff-role">CEO - Founder</p>
+                </div>
+
+                <!-- pirata --> 
+                <div class="staff-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="staff-image">
+                        <img src="image/stafflogo/pirata.gif" alt="Pirata">
+                    </div>
+                    <h3 class="staff-name"><i class="fas fa-crown fa-bounce"></i> Pirata</h3>
+                    <p class="staff-role">CEO - Founder</p>
+                </div>
+
+                <!-- volpe --> 
+                <div class="staff-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="staff-image">
+                        <img src="image/stafflogo/volpe.gif" alt="volpe">
+                    </div>
+                    <h3 class="staff-name"><i class="fas fa-crown fa-bounce"></i> Volpe</h3>
+                    <p class="staff-role">Co - Founder</p>
+                </div>
+
+                <!-- monkey --> 
+                <div class="staff-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="staff-image">
+                        <img src="image/stafflogo/monkey.gif" alt="monkey">
+                    </div>
+                    <h3 class="staff-name"><i class="fas fa-crown fa-bounce"></i> Monkey</h3>
+                    <p class="staff-role">Responsabile Staff</p>
+                </div>
+
+                <!-- jonny --> 
+                <div class="staff-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="staff-image">
+                        <img src="image/stafflogo/jonny.gif" alt="Jonny">
+                    </div>
+                    <h3 class="staff-name"><i class="fas fa-gamepad fa-shake"></i> Jonny</h3>
+                    <p class="staff-role">Gamemaster</p>
+                </div>
+
+                <!-- oscar --> 
+                <div class="staff-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="staff-image">
+                        <img src="image/stafflogo/oscar.gif" alt="Oscar">
+                    </div>
+                    <h3 class="staff-name"><i class="fas fa-gamepad fa-shake"></i> Oscar</h3>
+                    <p class="staff-role">Admin - Gamemaster</p>
+                </div>
+
+                <!-- puzpe --> 
+                <div class="staff-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="staff-image">
+                        <img src="image/stafflogo/puzpe.gif" alt="Puzpe">
+                    </div>
+                    <h3 class="staff-name"><i class="fas fa-spinner fa-spin-pulse"></i> Puzpe</h3>
+                    <p class="staff-role">Admin</p>
+                </div>
+
+                <!-- loriuz --> 
+                <div class="staff-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="staff-image">
+                        <img src="image/logo.png" alt="Loriuz">
+                    </div>
+                    <h3 class="staff-name"><i class="fas fa-code fa-beat-fade"></i> Loriuz</h3>
+                    <p class="staff-role">Lua Developer</p>
+                </div>
+
+                <!-- </body> --> 
+                <div class="staff-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="staff-image">
+                        <img src="image/stafflogo/zsormax.png" alt="Body">
+                    </div>
+                    <h3 class="staff-name"><i class="fas fa-helmet-safety fa-flip"></i> Body</h3>
+                    <p class="staff-role">Helper - Web SIte Dev</p>
+                </div>
+
+                <!-- galaxys55 --> 
+                <div class="staff-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="staff-image">
+                        <img src="image/logo.png" alt="Galaxys55">
+                    </div>
+                    <h3 class="staff-name"><i class="fas fa-helmet-safety fa-flip"></i> Galaxys55</h3>
+                    <p class="staff-role">Helper</p>
+                </div>
+
+                <!-- scrivere sotto -->
+                
+
+            </div>
+        </div>
+    </section>
+
+    <section id="streamers" class="section">
+    <div class="streamer-section">
+        <h2 class="streamer-title">
+            <i class="fab fa-twitch"></i> Streamer Ufficiali
+        </h2>
+        <div class="streamer-grid">
+            <!-- Esempio di streamer card -->
+            <div class="streamer-card" data-aos="flip-left">
+                <div class="live-badge">
+                    <i class="fas fa-circle"></i> LIVE
+                </div>
+                <div class="streamer-image">
+                    <img src="image/streamerlogo/Wenkislogo.png" alt="Nome Streamer">
+                </div>
+                <h3 class="streamer-name">Wenkis</h3>
+                <p class="streamer-info">Streamer Ufficiale</p>
+                <div class="streamer-stats">
+                    <div class="streamer-stat">
+                        <i class="fas fa-users"></i>
+                        <span>48k</span>
+                    </div>
+                    <div class="streamer-stat">
+                        <i class="fas fa-star"></i>
+                        <span>Partner</span>
+                    </div>
+                </div>
+                <a href="https://www.twitch.tv/wenkis" class="watch-now">
+                    <i class="fab fa-twitch"></i> Guarda Ora
+                </a>
+            </div>
+
+            <div class="streamer-card" data-aos="flip-left">
+                <div class="live-badge">
+                    <i class="fas fa-circle"></i> LIVE
+                </div>
+                <div class="streamer-image">
+                    <img src="image/logo.png" alt="Nome Streamer">
+                </div>
+                <h3 class="streamer-name">Nome Streamer</h3>
+                <p class="streamer-info">Streamer Ufficiale</p>
+                <div class="streamer-stats">
+                    <div class="streamer-stat">
+                        <i class="fas fa-users"></i>
+                        <span>1k</span>
+                    </div>
+                    <div class="streamer-stat">
+                        <i class="fas fa-star"></i>
+                        <span>Partner</span>
+                    </div>
+                </div>
+                <a href="#" class="watch-now">
+                    <i class="fab fa-twitch"></i> Guarda Ora
+                </a>
+            </div>
+            <!-- copia ed incolla sotto -->
+        </section>
+
+    <section id="lore" class="section">
+        <div class="container" data-aos="fade-right">
+            <h2 class="title">Lore del Server</h2>
+            <p class="typewriter"></p>
+        </div>
+    </section>
+
+    <div class="carousel-buttons">
+        <button class="carousel-menu-btn" data-target="carousel3">Lore del Server</button>
+        <button class="carousel-menu-btn" data-target="carousel1">Costituzione</button>
+        <button class="carousel-menu-btn" data-target="carousel2">Codice Legale</button>
+    </div>
+
+    <!-- image carousels -->
+    <div id="carousel1" class="carousel-container">
+        <button class="carousel-nav prev"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-track">
+            <div class="carousel-slide">
+                <img src="image/costituzione/1.png" alt="Image 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/costituzione/2.png" alt="Image 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/costituzione/3.png" alt="Image 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/costituzione/4.png" alt="Image 4">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/costituzione/5.png" alt="Image 5">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/costituzione/6.png" alt="Image 6">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/costituzione/7.png" alt="Image 7">
+            </div>
+        </div>
+        <button class="carousel-nav next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <div id="carousel2" class="carousel-container">
+        <button class="carousel-nav prev"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-track">
+            <div class="carousel-slide">
+                <img src="image/codice legale/1.png" alt="Image 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/codice legale/2.png" alt="Image 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/codice legale/3.png" alt="Image 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/codice legale/4.png" alt="Image 4">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/codice legale/5.png" alt="Image 5">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/codice legale/6.png" alt="Image 6">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/codice legale/7.png" alt="Image 7">
+            </div>
+        </div>
+        <button class="carousel-nav next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <div id="carousel3" class="carousel-container">
+        <button class="carousel-nav prev"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-track">
+            <div class="carousel-slide">
+                <img src="image/lore/1.png" alt="Image 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/lore/2.png" alt="Image 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/lore/3.png" alt="Image 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/lore/4.png" alt="Image 4">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/lore/5.png" alt="Image 5">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/lore/6.png" alt="Image 6">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/lore/7.png" alt="Image 7">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/lore/8.png" alt="Image 7">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/lore/9.png" alt="Image 7">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/lore/10.png" alt="Image 7">
+            </div>
+            <div class="carousel-slide">
+                <img src="image/lore/11.png" alt="Image 7">
+            </div>
+        </div>
+        <button class="carousel-nav next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <audio id="page-sound">
+        <source src="music/page.mp3" type="audio/mpeg">
+    </audio>
+
+    <section id="rules" class="section">
+        <div class="container" data-aos="fade-up">
+            <h2 class="title">Regolamento</h2>
+            <div class="rules-section">
+                <h3><i class="fas fa-scroll"></i> Regole Base</h3>
+                <ul class="basic-rules">
+                    <li><i class="fas fa-check"></i>Rispetta tutti i giocatori e lo staff del server</li>
+                    <li><i class="fas fa-check"></i>Il metagaming non è consentito in nessuna forma</li>
+                    <li><i class="fas fa-check"></i>Mantieni un comportamento roleplay coerente con l'epoca</li>
+                    <li><i class="fas fa-check"></i>Non utilizzare bug o mod non autorizzate</li>
+                    <li><i class="fas fa-check"></i>Segui le indicazioni dello staff in ogni momento</li>
+                </ul>
+            </div>
+        </div>
+        <div class="rules-button-container">
+            <a href="https://www.canva.com/design/DAGI3_Ov29c/pPNK-gVKbld1rXa_KBmnGQ/edit" target="_blank" class="rules-button">
+                <i class="fas fa-external-link-alt"></i> Leggi il Regolamento Completo
+            </a>
+        </div>
+    </section>
+
+    <!-- Aggiungi questa sezione subito dopo la chiusura della section del regolamento -->
+<section id="teamspeak" class="section">
+    <div class="container" data-aos="fade-up">
+        <h2 class="title">TeamSpeak</h2>
+        <div class="teamspeak-section" style="text-align: center;">
+            <h3 style="color: var(--color-gold); font-size: 1.5rem; margin-bottom: 1rem;">
+                <i class="fab fa-teamspeak"></i> Connettiti al nostro TeamSpeak
+            </h3>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                IP: <span style="color: var(--color-gold);">westvirginia</span>
+            </p>
+            <div class="teamspeak-image" style="max-width: 800px; margin: 0 auto;">
+                <!-- Qui potrai inserire l'immagine del TeamSpeak -->
+                <img src="image/ts3.png" alt="TeamSpeak Preview" style="width: 100%; height: auto;">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="gallery" class="section">
+        <div class="container" data-aos="fade-up">
+            <h2 class="title">Galleria</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="image/preview/image1.jpeg" alt="Screenshot 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/preview/image2.jpg" alt="Screenshot 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/preview/image3.jpeg" alt="Screenshot 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="donations" class="section">
+        <div class="container" data-aos="fade-up">
+            <h2 class="title">Cavalli Bit</h2>
+            <div class="packages-grid">
+                <!-- Cooming Soon -->
+                <div class="package-card" data-aos="flip-left">
+                    <div class="package-image">
+                        <img src="image/donazioni/cavbase.png" alt="Cavalli Base">
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Cavalli Base</h3>
+                        <div class="package-price">€15</div>
+                        <p class="package-description">
+                            Addestramento Incluso, Statistiche a scelta 4 - 7, Offerta Limitata
+                        </p>
+                        <div class="package-icons">
+                            <i class="fas fa-horse"></i>
+                        </div>
+                        <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                            <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                    </div>
+                </div>
+
+                <div class="package-card" data-aos="flip-left">
+                    <div class="package-image">
+                        <img src="image/donazioni/cavpremium.png" alt="Cavalli Premium">
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Cavalli Premium</h3>
+                        <div class="package-price">€25</div>
+                        <p class="package-description">
+                            Addestramento Incluso, Statistiche a scelta 7 - 9, Offerta Limitata
+                        </p>
+                        <div class="package-icons">
+                            <i class="fas fa-horse"></i>
+                        </div>
+                        <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                            <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                    </div>
+                </div>
+                <!-- whrite here -->
+            </div>
+        </div>
+    </section>
+
+        <section id="donation" class="section">
+            <div class="container" data-aos="fade-up">
+                <h2 class="title">Carri Bit</h2>
+                <div class="packages-grid">
+                    <!-- Cooming Soon -->
+                    <div class="package-card" data-aos="flip-left">
+                        <div class="package-image">
+                            <img src="image/donazioni/carribase.png" alt="Carri Base">
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title">Carri Base</h3>
+                            <div class="package-price">€15</div>
+                            <p class="package-description">
+                                A scelta, Inventario 150pz, Offerta Limitata
+                            </p>
+                            <div class="package-icons">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                                <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                        </div>
+                    </div>
+    
+                    <div class="package-card" data-aos="flip-left">
+                        <div class="package-image">
+                            <img src="image/donazioni/carripremium.png" alt="Carri Premium">
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title">Carri Premium</h3>
+                            <div class="package-price">€30</div>
+                            <p class="package-description">
+                                A scelta, Inventario 350pz, Offerta Limitata
+                            </p>
+                            <div class="package-icons">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                                <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                        </div>
+                    </div>
+    
+                    <div class="package-card" data-aos="flip-left">
+                        <div class="package-image">
+                            <img src="image/donazioni/carriultimate.png" alt="Carri Ultimate">
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title">Carri Ultimate</h3>
+                            <div class="package-price">€50</div>
+                            <p class="package-description">
+                                Inventario a scelta, Offerta Limitata
+                            </p>
+                            <div class="package-icons">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                                <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                        </div>
+                    </div>
+                    <!-- whrite here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="donations" class="section">
+            <div class="container" data-aos="fade-up">
+                <h2 class="title">Case Ranch Bit</h2>
+                <div class="packages-grid">
+                    <!-- Cooming Soon -->
+                    <div class="package-card" data-aos="flip-left">
+                        <div class="package-image">
+                            <img src="image/donazioni/casabase.png" alt="Casa Base">
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title">Casa Base</h3>
+                            <div class="package-price">€20</div>
+                            <p class="package-description">
+                                Casa a Scelta tra quelle disponibili con Teleport
+                            </p>
+                            <div class="package-icons">
+                                <i class="fas fa-house"></i>
+                            </div>
+                            <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                                <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                        </div>
+                    </div>
+    
+                    <div class="package-card" data-aos="flip-left">
+                        <div class="package-image">
+                            <img src="image/donazioni/casapremium.png" alt="Casa Premium">
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title">Casa Premium</h3>
+                            <div class="package-price">€50</div>
+                            <p class="package-description">
+                                Casa a Scelta tra quelle disponibili dai €500 ai €1500 con Teleport
+                            </p>
+                            <div class="package-icons">
+                                <i class="fas fa-house"></i>
+                            </div>
+                            <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                                <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                        </div>
+                    </div>
+    
+    
+                    <div class="package-card" data-aos="flip-left">
+                        <div class="package-image">
+                            <img src="image/donazioni/casaultimate.png" alt="Casa Ultimate">
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title">Casa Ultimate</h3>
+                            <div class="package-price">€70</div>
+                            <p class="package-description">
+                                Casa a Scelta tra quelle disponibili dai €1500 in su con Teleport
+                            </p>
+                            <div class="package-icons">
+                                <i class="fas fa-house"></i>
+                            </div>
+                            <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                                <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                        </div>
+                    </div>
+    
+                    <div class="package-card" data-aos="flip-left">
+                        <div class="package-image">
+                            <img src="image/donazioni/ranch premium.jpg" alt="Ranch Premium">
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title">Ranch Premium</h3>
+                            <div class="package-price">€50</div>
+                            <p class="package-description">
+                                Start Attività $200 + carro 100 slot
+                            </p>
+                            <div class="package-icons">
+                                <i class="fa-solid fa-cow"></i>
+                            </div>
+                            <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                                <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                        </div>
+                    </div>
+    
+                    <div class="package-card" data-aos="flip-left">
+                        <div class="package-image">
+                            <img src="image/donazioni/ranch ultimate.jpg" alt="Ranch Ultimate">
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title">Ranch Ultimate</h3>
+                            <div class="package-price">€70</div>
+                            <p class="package-description">
+                                Start Attività $300 + carro 150 slot + Abitazione nel Ranch
+                            </p>
+                            <div class="package-icons">
+                                <i class="fa-solid fa-cow"></i>
+                            </div>
+                            <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                                <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                        </div>
+                    </div>
+                    <!-- whrite here -->
+                </div>
+            </div>
+        </section>
+
+            <section id="donation" class="section">
+                <div class="container" data-aos="fade-up">
+                    <h2 class="title">Animali Bit</h2>
+                    <div class="packages-grid">
+                        <!-- Cooming Soon -->
+                        <div class="package-card" data-aos="flip-left">
+                            <div class="package-image">
+                                <img src="image/donazioni/spalla.png" alt="Animali da Spalla">
+                            </div>
+                            <div class="package-content">
+                                <h3 class="package-title">Animali da Spalla</h3>
+                                <div class="package-price">€15</div>
+                                <p class="package-description">
+                                    Pappagalli, Gufi, Parrocchetti, Sula piedi rossi
+                                </p>
+                                <div class="package-icons">
+                                    <i class="fa-solid fa-feather-pointed fa-beat-fade"></i>
+                                </div>
+                                <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                                    <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                            </div>
+                        </div>
+        
+                        <div class="package-card" data-aos="flip-left">
+                            <div class="package-image">
+                                <img src="image/donazioni/caccia.png" alt="Animali da Caccia">
+                            </div>
+                            <div class="package-content">
+                                <h3 class="package-title">Animali da Caccia</h3>
+                                <div class="package-price">€20</div>
+                                <p class="package-description">
+                                    Aquila, Corvo, Falco, Condor, Avvoltoio, Pellicano, Gabbiano, Airone, Gru
+                                </p>
+                                <div class="package-icons">
+                                    <i class="fa-solid fa-otter fa-flip"></i>
+                                </div>
+                                <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                                    <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                            </div>
+                        </div>
+        
+                        <div class="package-card" data-aos="flip-left">
+                            <div class="package-image">
+                                <img src="image/donazioni/compagnia.png" alt="Animali da Compagia">
+                            </div>
+                            <div class="package-content">
+                                <h3 class="package-title">Animali da Compagia</h3>
+                                <div class="package-price">€25</div>
+                                <p class="package-description">
+                                    Husky, Mutt, Labrador, Rufus, Bordercollie, Australia Shepard, Coonn Hound, Foxhound, Hound Dog, Poodle
+                                </p>
+                                <div class="package-icons">
+                                    <i class="fa-solid fa-bone fa-bounce"></i>
+                                </div>
+                                <a href="https://discord.gg/3Wwqkb8XAX" target="_blank" class="ticket-button">
+                                    <i class="fab fa-discord"></i>Riscatta la Taglia</a>
+                            </div>
+                        </div>
+                        <!-- whrite here -->
+                    </div>
+                </div>
+            </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3 class="footer-title">Contatti</h3>
+                <ul class="footer-list">
+                    <li><i class="fas fa-envelope"></i> support@westvirginia.com</li>
+                    <li><i class="fab fa-discord"></i> https://discord.gg/XV9uQkPCy6</li>
+                    <li><i class="fab fa-teamspeak"></i> westvirginia</li>
+                </ul>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@west.virginia.rp.ita"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitch"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-section">
+                <h3 class="footer-title">Orari Staff</h3>
+                <ul class="footer-list">
+                    <li><i class="fas fa-clock"></i> Lun-Ven: 14:00 - 23:00</li>
+                    <li><i class="fas fa-clock"></i> Sab-Dom: 14:00 - 23:00</li>
+                    <li><i class="fas fa-user-shield"></i> Supporto 24/7 su Discord</li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3 class="footer-title">Stato Server</h3>
+                <ul class="footer-list">
+                    <li style="grid-row: span 2;">
+                        <div class="whitelist-status-container">
+                            <i class="fas fa-users"></i> Stato Whitelist:
+                            <div id="whitelist-status" class="server-status">
+                                <!-- Status will be filled by JavaScript -->
+                            </div>
+                            <div id="next-status" class="next-status">
+                                <!-- Next status time will be filled by JavaScript -->
+                            </div>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-server"></i> Slots: 128</li>
+                    <li><i class="fas fa-signal"></i> Ping: 32ms</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="copyright">
+            <p>© 2025 West Virginia RP - RedM Server</p>
+            <p>Tutti i diritti riservati. Questo server non è affiliato con Rockstar Games.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Typewriter effect
+        const text = `Nel cuore del selvaggio West, dove la legge del più forte regna sovrana, si trova un mondo di infinite possibilità. Banditi, sceriffi, cowboy e nativi americani si intrecciano in storie di onore, tradimento e redenzione.
+
+        In queste terre selvagge, ogni scelta può fare la differenza tra la vita e la morte, tra la gloria e la sconfitta. Sei pronto a scrivere la tua storia?`;
+        
+        let i = 0;
+        const speed = 50;
+        const typewriter = document.querySelector('.typewriter');
+
+        function typeWriter() {
+            if (i < text.length) {
+                typewriter.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        // Start typewriter when section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    typeWriter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        observer.observe(document.querySelector('#lore'));
+
+        // Loading bar animation
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.loading-bar').style.width = scrolled + '%';
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+                // Background Music Setup
+                const audio = document.getElementById('background-music');
+        
+        // Set initial volume and auto-play
+        window.addEventListener('load', () => {
+            audio.volume = 0.050; // Set volume to 0.10%
+            audio.play().catch(() => {
+                console.log('Auto-play was prevented by browser policy. User interaction required.');
+            });
+        });
+
+        // Ensure music plays when user interacts with the page
+        document.addEventListener('click', () => {
+            audio.play().catch(() => {});
+        }, { once: true });
+
+    // Gestione scroll su mobile
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            // Scroll verso il basso
+            document.querySelector('.navbar').style.top = '-100px';
+        } else {
+            // Scroll verso l'alto
+            document.querySelector('.navbar').style.top = '0';
+        }
+        lastScrollTop = scrollTop;
+    }, { passive: true });
+
+    function checkWhitelistStatus() {
+    const now = new Date();
+    const day = now.getDay(); // 0 = Sunday, 6 = Saturday
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const currentTime = hours * 60 + minutes;
+
+    const weekdayStart = 14 * 60;  // 14:00 per i giorni feriali
+    const weekdayEnd = 23 * 60;    // 23:00 per i giorni feriali
+    const weekendStart = 14 * 60;   // 14:00 per i weekend
+    const weekendEnd = 23 * 60;    // 23:00 per i weekend
+
+    const statusElement = document.getElementById('whitelist-status');
+    const nextStatusElement = document.getElementById('next-status');
+
+    let isOpen = false;
+    let nextChangeTime = '';
+
+    // Check if it's weekend (Saturday or Sunday)
+    if (day === 0 || day === 6) {
+        isOpen = currentTime >= weekendStart && currentTime < weekendEnd;
+        if (isOpen) {
+            nextChangeTime = `Chiusura alle 23:00`;
+        } else if (currentTime < weekendStart) {
+            nextChangeTime = `Apertura alle 14:00`;
+        } else {
+            const nextDay = day === 6 ? 'domenica' : 'lunedì';
+            nextChangeTime = day === 6 ? 
+                `Apertura ${nextDay} alle 14:00` :
+                `Apertura ${nextDay} alle 14:00`;
+        }
+    } else {
+        // Weekday
+        isOpen = currentTime >= weekdayStart && currentTime < weekdayEnd;
+        if (isOpen) {
+            nextChangeTime = `Chiusura alle 23:00`;
+        } else if (currentTime < weekdayStart) {
+            nextChangeTime = `Apertura alle 14:00`;
+        } else {
+            nextChangeTime = `Apertura domani alle 14:00`;
+        }
+    }
+
+    statusElement.textContent = isOpen ? 'APERTE' : 'CHIUSE';
+    statusElement.className = `server-status ${isOpen ? 'status-open' : 'status-closed'}`;
+    nextStatusElement.textContent = nextChangeTime;
+}
+
+        // Esegui il controllo immediatamente e poi ogni minuto
+                checkWhitelistStatus();
+                setInterval(checkWhitelistStatus, 60000);
+
+                // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target) && !menuToggle.contains(e.target)) {
+                navbar.classList.remove('active');
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+        // Carousel menu buttons
+            const carouselButtons = document.querySelectorAll('.carousel-menu-btn');
+            const carousels = document.querySelectorAll('.carousel-container');
+            
+            carouselButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    
+                    // Hide all carousels
+                    carousels.forEach(carousel => {
+                        carousel.classList.remove('active');
+                    });
+                    
+                    // Show target carousel
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+            
+            // Carousel functionality
+            carousels.forEach(carousel => {
+                const track = carousel.querySelector('.carousel-track');
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                const prevButton = carousel.querySelector('.prev');
+                const nextButton = carousel.querySelector('.next');
+                let currentIndex = 0;
+                
+                // Set first slide as active
+                slides[0].classList.add('active');
+                
+                function updateSlides() {
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    slides[currentIndex].classList.add('active');
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+                
+                prevButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    updateSlides();
+                });
+                
+                nextButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateSlides();
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousels = document.querySelectorAll('.carousel-container');
+            const audio = document.getElementById('page-sound');
+            
+            carousels.forEach(carousel => {
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                const prevButton = carousel.querySelector('.prev');
+                const nextButton = carousel.querySelector('.next');
+                let currentIndex = 0;
+                
+                function updateSlides() {
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    slides[currentIndex].classList.add('active');
+                    audio.play();
+                }
+
+                prevButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    updateSlides();
+                });
+                
+                nextButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateSlides();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
